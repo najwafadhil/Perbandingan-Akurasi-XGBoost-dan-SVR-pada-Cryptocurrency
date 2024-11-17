@@ -1,0 +1,56 @@
+/* Sidebar Container Styling */
+section[data-testid="stSidebar"] {
+    background-color: #1B262C; /* Dark background for sidebar */
+    width: 250px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar Title Styling */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+    color: #BBE1FA !important; /* Light accent color for title text */
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Button Styling for Navigation */
+section[data-testid="stSidebar"] .stButton > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0F4C75; /* Default unselected button background */
+    color: #BBE1FA; /* Light text color */
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 20px;
+    margin: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    width: calc(100% - 40px); /* Ensures consistent width with padding */
+}
+
+/* Selected Button Styling */
+section[data-testid="stSidebar"] .stButton > button:focus,
+section[data-testid="stSidebar"] .stButton > button[data-selected="true"] {
+    background-color: #3282B8; /* Brighter blue for selected item */
+    color: #ffffff !important; /* White text color for selected item */
+}
+
+/* Hover Effect for Sidebar Buttons */
+section[data-testid="stSidebar"] .stButton > button:hover {
+    background-color: #BBE1FA; /* Light accent color on hover */
+    color: #0F4C75; /* Darker text color on hover */
+}
+
+/* Ensure that all buttons use flex display */
+section[data-testid="stSidebar"] .stButton > button {
+    display: flex;
+    align-items: center;
+}
