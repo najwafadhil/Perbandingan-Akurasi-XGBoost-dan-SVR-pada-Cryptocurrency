@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+pickle
+subprocess
+matplotlib
+os
+sklearn
+io
+zipfile
+warnings
