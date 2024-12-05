@@ -392,7 +392,7 @@ elif st.session_state.page == "Prediksi":
                     ax1.plot(svr_results['predicted'], color='green', label='Prediksi SVR')
                     ax1.set_title('Harga Aktual vs Prediksi SVR')
                     ax1.set_xlabel('Hari')
-                    ax1.set_ylabel('Harga Close (Skala Tereduksi)')
+                    ax1.set_ylabel('Harga Close')
                     ax1.legend()
                     st.pyplot(fig1)
 
@@ -427,7 +427,7 @@ elif st.session_state.page == "Prediksi":
                     ax2.plot(xgb_results['predicted'], color='red', label='Prediksi XGBoost')
                     ax2.set_title('Harga Aktual vs Prediksi XGBoost')
                     ax2.set_xlabel('Hari')
-                    ax2.set_ylabel('Harga Close (Skala Tereduksi)')
+                    ax2.set_ylabel('Harga Close')
                     ax2.legend()
                     st.pyplot(fig2)
 
