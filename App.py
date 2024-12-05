@@ -388,11 +388,14 @@ elif st.session_state.page == "Prediksi":
                 with col1:
                     st.subheader("Prediksi SVR")
                     fig1, ax1 = plt.subplots(figsize=(8, 4))
-                    ax1.plot(svr_results['actual'], color='blue', label='Harga Aktual')
-                    ax1.plot(svr_results['predicted'], color='green', label='Prediksi SVR')
+                    svr_results['date'] = pd.to_datetime(svr_results['date'])
+                    ax1.plot(svr_results.index, svr_results['actual'], color='blue', label='Harga Aktual')
+                    ax1.plot(svr_results.index, svr_results['predicted'], color='green', label='Prediksi SVR')
                     ax1.set_title('Harga Aktual vs Prediksi SVR')
-                    ax1.set_xlabel('Index')
+                    ax1.set_xlabel('Bulan')  
                     ax1.set_ylabel('Harga Close (Skala Tereduksi)')
+                    ax1.set_xticks(svr_results.index)
+                    ax1.set_xticklabels(svr_results['date'].dt.strftime('%B'), rotation=45, ha='right')  
                     ax1.legend()
                     st.pyplot(fig1)
                 
@@ -417,14 +420,17 @@ elif st.session_state.page == "Prediksi":
                 with col2:
                     st.subheader("Prediksi XGBoost")
                     fig2, ax2 = plt.subplots(figsize=(8, 4))
-                    ax2.plot(xgb_results['actual'], color='blue', label='Harga Aktual')
-                    ax2.plot(xgb_results['predicted'], color='red', label='Prediksi XGBoost')
+                    xgb_results['date'] = pd.to_datetime(xgb_results['date'])
+                    ax2.plot(xgb_results.index, xgb_results['actual'], color='blue', label='Harga Aktual')
+                    ax2.plot(xgb_results.index, xgb_results['predicted'], color='red', label='Prediksi XGBoost')
                     ax2.set_title('Harga Aktual vs Prediksi XGBoost')
-                    ax2.set_xlabel('Index')
+                    ax2.set_xlabel('Bulan')  # Label sumbu X
                     ax2.set_ylabel('Harga Close (Skala Tereduksi)')
+                    ax2.set_xticks(xgb_results.index)
+                    ax2.set_xticklabels(xgb_results['date'].dt.strftime('%B'), rotation=45, ha='right')  
                     ax2.legend()
                     st.pyplot(fig2)
-                
+                    
                     # Simpan grafik ke BytesIO
                     xgb_image = io.BytesIO()
                     fig2.savefig(xgb_image, format='png')
