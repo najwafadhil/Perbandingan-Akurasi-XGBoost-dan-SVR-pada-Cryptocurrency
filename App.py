@@ -395,6 +395,12 @@ elif st.session_state.page == "Prediksi":
                     ax1.set_ylabel('Harga Close (Skala Tereduksi)')
                     ax1.legend()
                     st.pyplot(fig1)
+
+                    st.write(f"**MAE:** {svr_results['mae']:.4f}")
+                    st.write(f"**MSE:** {svr_results['mse']:.4f}")
+                    st.write(f"**RMSE:** {svr_results['rmse']:.4f}")
+                    st.write(f"**MAPE:** {svr_results['mape']:.2f}%")
+                    st.write(f"**Akurasi:** {svr_results['accuracy']:.2f}%")
                 
                     # Simpan grafik ke BytesIO
                     svr_image = io.BytesIO()
@@ -424,6 +430,12 @@ elif st.session_state.page == "Prediksi":
                     ax2.set_ylabel('Harga Close (Skala Tereduksi)')
                     ax2.legend()
                     st.pyplot(fig2)
+
+                    st.write(f"**MAE:** {xgb_results['mae']:.4f}")
+                    st.write(f"**MSE:** {xgb_results['mse']:.4f}")
+                    st.write(f"**RMSE:** {xgb_results['rmse']:.4f}")
+                    st.write(f"**MAPE:** {xgb_results['mape']:.2f}%")
+                    st.write(f"**Akurasi:** {xgb_results['accuracy']:.2f}%")
                 
                     # Simpan grafik ke BytesIO
                     xgb_image = io.BytesIO()
